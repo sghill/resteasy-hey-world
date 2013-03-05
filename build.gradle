@@ -1,0 +1,19 @@
+apply plugin: "war"
+apply plugin: "idea"
+
+repositories {
+  maven {
+    url "http://repository.jboss.org/maven2"
+  }
+  maven {
+    url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases"
+  }
+  mavenCentral()
+}
+
+dependencies {
+  providedCompile "javax.servlet:javax.servlet-api:3.0.1"
+  compile "org.jboss.resteasy:resteasy-jaxrs:2.3.5.Final"
+  compile "org.jboss.resteasy:resteasy-jackson-provider:2.3.5.Final"
+}
+
