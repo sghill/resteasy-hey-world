@@ -1,19 +1,36 @@
 apply plugin: "war"
 apply plugin: "idea"
+apply plugin: "tomcat"
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:0.9.8'
+    }
+}
 
 repositories {
-  maven {
-    url "http://repository.jboss.org/maven2"
-  }
-  maven {
-    url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases"
-  }
-  mavenCentral()
+    maven {
+        url "http://repository.jboss.org/maven2"
+    }
+    maven {
+        url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases"
+    }
+    mavenCentral()
 }
 
 dependencies {
-  providedCompile "javax.servlet:javax.servlet-api:3.0.1"
-  compile "org.jboss.resteasy:resteasy-jaxrs:2.3.5.Final"
-  compile "org.jboss.resteasy:resteasy-jackson-provider:2.3.5.Final"
+    providedCompile "javax.servlet:javax.servlet-api:3.0.1"
+    compile "org.jboss.resteasy:resteasy-jaxrs:2.3.5.Final"
+    compile "org.jboss.resteasy:resteasy-jackson-provider:2.3.5.Final"
+    def tomcatVersion = '7.0.39'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
 }
 
