@@ -13,8 +13,9 @@ Getting Started
 3. `gradle idea`
 4. `open resteasy-hey-world.ipr`
 5. `gradle tomcatRunWar`
-6. go to `http://localhost:8080/resteasy-hey-world/locomotives`
-7. tinker, expand, enjoy
+6. go to `http://localhost:8080/resteasy-hey-world/api/locomotives` to see the json
+7. go to `http://localhost:8080/resteasy-hey-world/index.html` to see static files
+8. tinker, expand, enjoy
 
 License
 =======
