@@ -7,6 +7,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.sgrailways.resteasy.model.Locomotive;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 
 public class LocomotivesRepository {
@@ -30,7 +31,7 @@ public class LocomotivesRepository {
             return locomotiveDao.queryForAll();
         } catch (SQLException e) {
             e.printStackTrace();
-            return list();
+            return Collections.emptyList();
         }
     }
 }
