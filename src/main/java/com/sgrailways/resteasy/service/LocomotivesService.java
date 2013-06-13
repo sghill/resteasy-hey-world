@@ -4,9 +4,8 @@ import com.sgrailways.resteasy.model.Locomotive;
 import com.sgrailways.resteasy.repositories.LocomotivesRepository;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 public class LocomotivesService {
     private LocomotivesRepository locomotivesRepository;
@@ -16,8 +15,15 @@ public class LocomotivesService {
         this.locomotivesRepository = locomotivesRepository;
     }
 
-    public List<Locomotive> list() {
+    public List<Locomotive> list() throws SQLException {
         return locomotivesRepository.list();
     }
 
+    public Locomotive create(Locomotive locomotive) throws SQLException {
+       return locomotivesRepository.create(locomotive);
+    }
+
+    public int count() throws SQLException {
+        return list().size();
+    }
 }

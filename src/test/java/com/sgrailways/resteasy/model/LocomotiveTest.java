@@ -10,8 +10,7 @@ public class LocomotiveTest {
 
     @Test
     public void shouldExposeNameAndId(){
-        Locomotive locomotive = new Locomotive(1, "name");
-        assertThat(locomotive.getId(), is(1));
+        Locomotive locomotive = new Locomotive("name");
         assertThat(locomotive.getName(), is("name"));
     }
 }

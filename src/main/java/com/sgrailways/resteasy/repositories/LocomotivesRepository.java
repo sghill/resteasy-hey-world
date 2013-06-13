@@ -6,7 +6,6 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.sgrailways.resteasy.model.Locomotive;
 
 import java.sql.SQLException;
-import java.util.Collections;
 import java.util.List;
 
 import static com.j256.ormlite.dao.DaoManager.createDao;
@@ -19,19 +18,18 @@ public class LocomotivesRepository {
     public LocomotivesRepository(ConnectionSource connectionSource) {
         try {
              locomotiveDao = createDao(connectionSource, Locomotive.class);
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public List<Locomotive> list() {
-        try {
+    public List<Locomotive> list() throws SQLException {
             return locomotiveDao.queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return Collections.emptyList();
-        }
+
     }
 
+    public Locomotive create(Locomotive locomotive) throws SQLException {
+        locomotiveDao.create(locomotive);
+        return locomotive;
+    }
 }

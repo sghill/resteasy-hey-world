@@ -6,7 +6,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "locomotives")
 public class Locomotive {
 
-    @DatabaseField(id = true)
+    @DatabaseField(generatedId = true)
     private int id;
     @DatabaseField
     private String name;
@@ -15,8 +15,7 @@ public class Locomotive {
         // ORMLite needs a no-arg constructor
     }
 
-    public Locomotive(int id, String name) {
-        this.id = id;
+    public Locomotive(String name) {
         this.name = name;
     }
 
