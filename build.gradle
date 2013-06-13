@@ -38,6 +38,7 @@ dependencies {
     compile "com.j256.ormlite:ormlite-core:4.45"
     compile "com.j256.ormlite:ormlite-jdbc:4.45"
     compile "com.google.inject:guice:3.0"
+    compile "junit:junit:4.11"
 
     def tomcatVersion = '7.0.39'
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
