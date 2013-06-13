@@ -1,8 +1,7 @@
 package com.sgrailways.resteasy.repositories;
 
+import com.google.inject.Inject;
 import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.sgrailways.resteasy.model.Locomotive;
 
@@ -10,19 +9,19 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
+import static com.j256.ormlite.dao.DaoManager.createDao;
+
 public class LocomotivesRepository {
     private Dao<Locomotive, Integer> locomotiveDao;
-    String databaseUrl = "jdbc:h2:resteasy";
 
-    public LocomotivesRepository() {
-        ConnectionSource connectionSource = null;
+
+    @Inject
+    public LocomotivesRepository(ConnectionSource connectionSource) {
         try {
-            connectionSource = new JdbcConnectionSource(databaseUrl, "sa", "");
-             locomotiveDao =
-                    DaoManager.createDao(connectionSource, Locomotive.class);
+             locomotiveDao = createDao(connectionSource, Locomotive.class);
 
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
     }
 
@@ -34,4 +33,5 @@ public class LocomotivesRepository {
             return Collections.emptyList();
         }
     }
+
 }

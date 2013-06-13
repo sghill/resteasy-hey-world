@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 public class LocomotivesService {
-    private ArrayList<Map<String, String>> locomotives;
     private LocomotivesRepository locomotivesRepository;
 
     @Inject
@@ -20,4 +19,5 @@ public class LocomotivesService {
     public List<Locomotive> list() {
         return locomotivesRepository.list();
     }
+
 }
