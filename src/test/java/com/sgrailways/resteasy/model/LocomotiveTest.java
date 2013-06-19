@@ -13,4 +13,5 @@ public class LocomotiveTest {
         Locomotive locomotive = new Locomotive("name");
         assertThat(locomotive.getName(), is("name"));
     }
+
 }

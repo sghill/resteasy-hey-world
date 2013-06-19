@@ -27,4 +27,5 @@ public class Locomotive {
     public String getName() {
         return name;
     }
+
 }

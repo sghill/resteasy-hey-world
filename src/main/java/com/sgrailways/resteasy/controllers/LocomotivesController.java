@@ -38,24 +38,8 @@ public class LocomotivesController {
                     .build();
         }
     }
-    //GET /resteasy-hey-world/api/locomotives/count
-    @GET
-    @Path("/count")
-    public Response count() {
-        try {
-            int count = locomotivesService.count();
-            return Response
-                    .status(Response.Status.OK)
-                    .entity(count)
-                    .build();
 
-        } catch (SQLException e) {
-            return Response
-                    .status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(e)
-                    .build();
-        }
-    }
+    //POST /resteasy-hey-world/api/locomotives/new
     @POST
     @Path("/new")
         public Response newLocomotive(Locomotive locomotive) {

@@ -23,7 +23,4 @@ public class LocomotivesService {
        return locomotivesRepository.create(locomotive);
     }
 
-    public int count() throws SQLException {
-        return list().size();
-    }
 }
