@@ -15,7 +15,8 @@ Getting Started
 5. `gradle tomcatRunWar`
 6. go to `http://localhost:8080/resteasy-hey-world/api/locomotives` to see the json
 7. go to `http://localhost:8080/resteasy-hey-world/static/index.html` to see static files
-8. tinker, expand, enjoy
+8. go to `http://10.25.3.31:8082` to see the h2 web console
+9. tinker, expand, enjoy
 
 License
 =======
