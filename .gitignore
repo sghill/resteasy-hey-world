@@ -4,3 +4,6 @@ build/
 *.iml
 *.ipr
 *.iws
+*.h2.db
+*.lock.db
+out/
